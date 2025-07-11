@@ -1,0 +1,622 @@
+openapi: 3.0.0
+info:
+  title: Engineering API
+  version: 1.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+servers:
+  - url: http://127.0.0.1:8000/api
+
+ ##### Pages #####
+paths:
+ /pages:
+    post:
+      summary: Get Pages
+      description: Get Pages 
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Pages Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                  language:
+                    type: string
+                    example: en
+        '400':
+          description: Bad request 
+
+  ##### Get properties #####
+ /properties:
+    post:
+      summary: Get Properties
+      description: Get Properties
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+                property_type:
+                  type: int
+                  description: property_type identifier
+                  example: 1
+      responses:
+        '201':
+          description: News Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                language:
+                  type: string                
+                  example: en
+                property_type:
+                  type: int                
+                  example: 1
+        '400':
+          description: Bad request 
+
+  ##### Get property types #####
+
+ /property-types:
+    post:
+      summary: Get Property Types
+      description: Get Property Types
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Property Types Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                language:
+                  type: string                
+                  example: en
+        '400':
+          description: Bad request 
+  
+  ##### Client Logos #####
+
+ /client-logos:
+    get:
+      summary: Get Client Logos
+      description: Get Client Logos  
+      responses:
+        '201':
+          description: Client Logos Retrieved Successfuly!
+        '400':
+          description: Bad request 
+
+  ##### Get Banners #####
+
+ /banners:
+    post:
+      summary: Get Banners
+      description: Get Banners
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Banners Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                language:
+                  type: string                
+                  example: en
+        '400':
+          description: Bad request 
+
+  ##### Get Testimonials #####
+ /testimonials:
+    post:
+      summary: Get Testimonials
+      description: Get Testimonials  
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Testimonials Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                language:
+                  type: string                
+                  example: en
+        '400':
+          description: Bad request 
+
+  ##### Get Page Section #####
+
+ /page-sections:
+    post:
+      summary: Get Page Sections
+      description: Get Page Sections  
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page_id:
+                  type: int
+                  description: Page id identifier
+                  example: 6
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Page Sections Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                  page_id:
+                    type: int         
+                    example: 6
+                  language:
+                    type: string        
+                    example: en
+        '400':
+          description: Bad request 
+
+ ##### Save Contact Information #####
+
+ /contact-us:
+    post:
+      summary: Save Contact Informations
+      description: Save Contact Informations.
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: name identifier
+                  example: John Doe
+                email:
+                  type: string
+                  description: email identifier
+                  example: johndoe@test.com
+                subject:
+                  type: string
+                  description: subject identifier
+                  example: Engineering Constructions
+                message:
+                  type: string
+                  description: message identifier
+                  example: About Engineering Constructions
+      responses:
+        '201':
+          description: Contact Information Saved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: johndoe@test.com
+                subject:
+                  type: string             
+                  example: Engineering Constructions
+                message:
+                  type: string                
+                  example: About Engineering Constructions
+        '400':
+          description: Bad request 
+
+ ##### Get Objectives #####
+
+ /objectives:
+    post:
+      summary: Get Objectives
+      description: Get Objectives
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Objectives Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:        
+                  language:
+                    type: string        
+                    example: en
+        '400':
+          description: Bad request 
+
+ ##### Get Accordions #####
+
+ /accordions:
+    post:
+      summary: Get Accordions
+      description: Get Accordions
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page_id:
+                  type: int
+                  description: Page id identifier
+                  example: 6
+                language:
+                  type: string
+                  description: language identifier
+                  example: en
+      responses:
+        '201':
+          description: Objectives Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:       
+                  page_id:
+                    type: int
+                    example: 6 
+                  language:
+                    type: string        
+                    example: en
+        '400':
+          description: Bad request 
+
+ ##### Get Project Types #####
+
+ /project-types:
+    get:
+      summary: Get Project Types
+      description: Returns a list of project types in the specified language.
+      parameters:
+        - name: language
+          in: query
+          required: true
+          description: Language code (must be either 'en' or 'ar')
+          schema:
+            type: string
+            enum: [en, ar]
+            example: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: Residential
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Validation Error
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '500':
+          description: Internal Server Error
+
+
+ ##### Get Project Categories #####
+
+ /project-categories/{project_type_id}:
+    get:
+      summary: Get Project Categories by Project Type and Language
+      description: Returns project categories for the given project type ID and selected language.
+      parameters:
+        - name: project_type_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the project type
+
+        - name: language
+          in: query
+          required: true
+          description: Language code (must be either 'en' or 'ar')
+          schema:
+            type: string
+            enum: [en, ar]
+            example: en
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: Construction
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Validation Error
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '400':
+          description: Bad request 
+
+ ##### Get Projects #####
+
+ /projects/{project_category_id}:
+    get:
+      summary: Get Projects
+      description: Returns projects for the given project category ID and selected language.
+      parameters:
+        - name: project_category_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Category ID of the project
+
+        - name: language
+          in: query
+          required: true
+          description: Language code (must be either 'en' or 'ar')
+          schema:
+            type: string
+            enum: [en, ar]
+            example: en
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: Construction
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Validation Error
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '400':
+          description: Bad request 
+
+ ##### Get Services #####
+
+ /services:
+    get:
+      summary: Get Services
+      description: Returns a list of services in the specified language.
+      parameters:
+        - name: language
+          in: query
+          required: true
+          description: Language code (must be either 'en' or 'ar')
+          schema:
+            type: string
+            enum: [en, ar]
+            example: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: integer
+                      example: Our Services
+                    description:
+                      type: string
+                      example: Our skilled team
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Validation Error
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '500':
+          description: Internal Server Error
+
+ ##### Get Villas #####
+
+ /villas/{project_category_id}:
+    get:
+      summary: Get Villas
+      description: Returns Villas for the given project category ID and selected language.
+      parameters:
+        - name: project_category_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Category ID of the Villas
+
+        - name: language
+          in: query
+          required: true
+          description: Language code (must be either 'en' or 'ar')
+          schema:
+            type: string
+            enum: [en, ar]
+            example: en
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: Construction
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Validation Error
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+        '400':
+          description: Bad request 
